@@ -206,6 +206,6 @@ BEGIN
 		END	
 END;
 
-EXEC goToVersion 4;
+EXEC goToVersion 2;
 
 SELECT * FROM DatabaseVersion
