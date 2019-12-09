@@ -26,12 +26,6 @@ CREATE TABLE ClubPlayers(
 	CONSTRAINT FK_ClubPlayers_ChessClub FOREIGN KEY (club_id) REFERENCES ChessClub (cid)
 );
 
-DROP TABLE ChessPlayer;
-DROP TABLE ClubPlayers
-ALTER TABLE ClubPlayers ADD PRIMARY KEY (centry_id);
-
-DROP TABLE ChessTitle;
-
 CREATE TABLE Tournament(
 	tourn_id INT PRIMARY KEY,
 	tourn_name VARCHAR(200)
@@ -81,7 +75,3 @@ CREATE TABLE TacticsHistory(
 	CONSTRAINT FK_TacticsHistory_Tactic FOREIGN KEY (tactic_id) REFERENCES Tactic (tactic_id),
 	CONSTRAINT PK_TacticsHistory PRIMARY KEY NONCLUSTERED (player_id,tactic_id)
 );
-DROP TABLE Match
-
-DROP TABLE ClubPlayers
-DROP TABLE TournamentParticipantsHistory
