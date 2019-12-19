@@ -1,17 +1,21 @@
 CREATE DATABASE hw5
 
+DROP TABLE Ta
 CREATE TABLE Ta(
 	aid INT NOT NULL IDENTITY (1,1), 
 	CONSTRAINT PK_Ta PRIMARY KEY (aid),
-	a2 INT UNIQUE
+	a2 INT UNIQUE,
+	additionalField VARCHAR(100)
 );
-
+	
+DROP TABLE Tb
 CREATE TABLE Tb(
 	bid INT NOT NULL IDENTITY (1,1), 
 	CONSTRAINT PK_Tb PRIMARY KEY (bid),
 	b2 INT 
 );
 
+DROP TABLE Tc
 CREATE TABLE Tc(
 	cid INT NOT NULL IDENTITY (1,1),
 	CONSTRAINT PK_Tc PRIMARY KEY (cid), 
@@ -20,7 +24,7 @@ CREATE TABLE Tc(
 	);
 
 
-INSERT INTO Ta VALUES (2),(30), (-7), (178), (0)
+INSERT INTO Ta VALUES (2,'a'),(30,'b'), (-7,'c'), (178,'d'), (0,'e')
 INSERT INTO Tb VALUES (10), (2), (2), (120), (-123)
 INSERT INTO Tc VALUES (1,1),(2,2),(3,3),(4,4),(5,5), (5,1), (1,2), (2,3)
 
@@ -38,7 +42,7 @@ SELECT *
 FROM Ta 
 WHERE aid>0
 
---nonclustered index scan
+--nonclustered index scan + key lookup
 SELECT *
 FROM Ta 
 ORDER BY a2
@@ -78,3 +82,4 @@ AS
 
 GO
 SELECT * FROM cView
+
